@@ -9,6 +9,18 @@ Stable tag: 1.0.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
+== Development ==
+
+To build the css sources run
+
+`npm run build`
+
+and to watch during development run
+
+`npm run watch`
+
+on console.
+
 
 == Credits ==
 
