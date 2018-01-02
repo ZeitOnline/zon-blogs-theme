@@ -1,0 +1,19 @@
+.widget-area {
+    .search {
+        float: none;
+    }
+
+    .search__input {
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        transform: none;
+        visibility: visible;
+        width: 200px;
+    }
+
+    .search__button {
+        @include transition();
+        box-shadow: none;
+    }
+}

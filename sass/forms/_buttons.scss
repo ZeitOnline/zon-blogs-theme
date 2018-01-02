@@ -1,0 +1,29 @@
+.zb-button {
+  margin: 21px auto 0;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: "TabletGothic",sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #313131;
+  letter-spacing: 1px;
+  padding: 10px 12px;
+  background: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  display: inline-block;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: rgba(255,255,255, 0.5);
+  @include transition();
+  &:link, &:visited {
+    color: #313131;
+  }
+  &:hover, &:active {
+    background-color: rgba(255,255,255, 0.8);
+    border: 2px solid #999;
+    color: #000;
+  }
+}

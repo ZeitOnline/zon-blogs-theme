@@ -1,0 +1,98 @@
+.zb-pager {
+	clear: both;
+	margin: 0 auto;
+	padding: 45px 15px 15px 15px;
+	max-width: 640px;
+	@include bp(large) {
+		text-align: center;
+		max-width: 100%;
+	}
+}
+
+.zb-pager__btn-rel {
+	background: #171717;
+	opacity: 0.8;
+	color: white;
+	padding: 0.4rem 1rem 0.4rem 1rem;
+	text-transform: uppercase;
+	color:white;
+	text-decoration: none;
+	border-radius: 4px;
+	font-size: $font-size__pager-btn-rel;
+	letter-spacing: 0.1em;
+	display: block;
+	width: intrinsic;
+	margin: 30px 0;
+	@include transition();
+
+	@include bp(large) {
+		font-size: $font-size__pager-btn-rel-desktop;
+		display: inline-block;
+		margin: 0;
+	}
+	&:hover, &:active {
+		opacity: 1;
+		color: white;
+	}
+	&:link, &:visited {
+		color: white;
+	}
+}
+.zb-pager__btn-rel-prev {
+	margin-right: 30px;
+	&:before {
+		content: "‹";
+		padding-right: 0.5em;
+		font-size: 1rem;
+		line-height: 1;
+	}
+}
+.zb-pager__btn-rel-next {
+	@include bp(large) {
+		margin-top: 0;
+		margin-left: 30px;
+		margin-bottom: 0;
+	}
+	&:after {
+		content: "›";
+		padding-left: 0.5em;
+		font-size: 1rem;
+		line-height: 1;
+	}
+}
+
+.zb-pager__btn-abs {
+	color: #171717;
+	opacity: 0.8;
+	text-decoration: none;
+	font-size: $font-size__pager-btn-abs;
+	@include transition();
+
+	@include bp(large) {
+		font-size: $font-size__pager-btn-abs-desktop;
+	}
+	&:hover, &:active {
+		opacity: 1;
+		color: #171717;
+	}
+	&:link, &:visited {
+		color: #171717;
+	}
+}
+
+.zb-pager__btn-is-active {
+	font-weight: bold;
+}
+
+.zb-pager__devider {
+	color: #cccccc;
+	padding-left: 1.4rem;
+	padding-right: 1.4rem;
+	@include bp(large) {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+}
+.zb-pager__placeholder {
+	color: #cccccc;
+}

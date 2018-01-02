@@ -1,0 +1,75 @@
+//--------------------------------------------------------------
+// Links
+//--------------------------------------------------------------
+@import "links";
+
+//--------------------------------------------------------------
+// Menus
+//--------------------------------------------------------------
+@import "menus";
+
+//--------------------------------------------------------------
+// Pager
+//--------------------------------------------------------------
+@import "pager";
+
+//--------------------------------------------------------------
+// Pager for comments
+//--------------------------------------------------------------
+@import "comments-pager";
+
+.site-content__navigation__category {
+	text-align: center;
+
+	select::-ms-expand{
+		display: none;
+	}
+}
+
+.site-content__navigation__category .postform {
+  text-align: center;
+	margin: 21px auto;
+	border: 2px solid $color__catselector_border;
+	border-radius: 4px;
+	font-size: $font-size__catselector;
+	font-family: $font__main;
+	font-weight: bold;
+	text-transform: uppercase;
+	font-color: $color__catselector;
+	letter-spacing: 0.1em;
+	padding-left: 28px;
+	padding-right: 38px;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	background:white;
+	// Get rid of the extra Button
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	cursor: pointer;
+	position: relative;
+	width: 220px;
+	@include transition();
+	&:hover, &:active {
+		background-color: rgba(255,255,255,0.8);
+		border: 2px solid #999;
+		color: #000;
+	}
+}
+#cat-width-helper {
+	display: none;
+	font-size: $font-size__catselector;
+	letter-spacing: 0.1em;
+	font-family: $font__main;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.cat-icon-helper {
+	position: relative;
+	&:before {
+		content: "▾";
+		position: absolute;
+		top: -2px;
+		left: -40px;
+	}
+}

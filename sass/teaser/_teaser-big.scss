@@ -1,0 +1,67 @@
+.teaser-big {
+	max-width: 650px;
+	margin: 70px auto 0 auto;
+	padding: 0 15px;
+}
+
+.teaser-big__entry-title {
+	@extend .zb-text-headline;
+	margin-top: 2px;
+	a {
+		color: $color__text-headline;
+		text-decoration: none;
+	}
+	line-height: 1.4;
+}
+.teaser-big__entry-content {
+	@extend .zb-text-paragraph;
+	a {
+		@include transition();
+		color: $color__text-paragraph;
+		border-bottom: 1px solid rgba(49, 49, 49, 0.5);
+		&:hover, &:active {
+			color: #B91109;
+			border-bottom: 1px solid rgba(185, 1, 24, 0.5);
+		}
+	}
+	.more-link {
+		@include transition();
+		text-decoration: none;
+		color: $color__link;
+		border-bottom-width: 0px;
+		&:after {
+			content: "…";
+		}
+		.meta-nav {
+			display: none;
+		}
+		&:hover, &:active {
+			border-bottom: 1px solid rgba(185,1,25,0.5);
+		}
+	}
+}
+.teaser-big__entry-meta {
+	@extend .zb-text-meta;
+	a {
+		color: $color__text-meta;
+	}
+}
+.teaser-big__entry-footer {
+	@extend .zb-text-meta;
+	margin-bottom: 50px;
+	a {
+		color: $color__text-meta;
+	}
+	.comments-link {
+		@include transition();
+		border-bottom: 1px solid rgba(112, 112, 112, 0.5);
+		&:hover, &:active {
+			border-bottom: 1px solid rgba(112, 112, 112, 1);
+		}
+	}
+}
+.posted-on__anchor, .posted-on__anchor:visited {
+	@extend .zb-text-meta;
+	color: $color__text-meta;
+	text-decoration: none;
+}

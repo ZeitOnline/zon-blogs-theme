@@ -1,0 +1,40 @@
+.ad-wrapper-fullwidth {
+	padding: 24px 0;
+}
+
+// Medium Rectangle
+.ad-medium-rectangle {
+	display: table;
+	margin: 0 auto;
+	text-align: right;
+}
+
+.ad-desktop {
+	background-color: transparent;
+}
+
+.ad-wrapper--article {
+	@include bp(medium) {
+		margin: 0 -45px;
+	}
+	@include bp(780px) {
+		margin: 0 -55px;
+	}
+	@include bp(830px) {
+		margin: 0 -70px;
+	}
+	@include bp(860px) {
+		margin: 0 -85px;
+	}
+	@include bp(large) {
+		margin: 0 -145px;
+	}
+}
+
+.ad-wrapper--fullwidth-article {
+	display: none;
+	@include bp(1000px) {
+		display: block;
+		margin: 0 -190px;
+	}
+}

@@ -1,0 +1,108 @@
+.zb-sharing-menu {
+  @extend .zb-text-meta;
+  display: block;
+  margin-top: 15px;
+  @include bp(large) {
+    display: inline;
+    margin-top: 0;
+  }
+}
+.zb-sharing-menu__title {
+  @include transition(opacity);
+  cursor: pointer;
+  color: #4d4d4d;
+  opacity: 0.8;
+  &:hover, &:active {
+    opacity: 1;
+  }
+  &:after {
+    content: "▾";
+    padding-left: 0.3em;
+  }
+  &.is-expanded {
+    &:after {
+      content: "╳";
+      -moz-transform: rotate(-90deg);
+      -ms-transform: rotate(-90deg);
+      -webkit-transform: rotate(-90deg);
+      transform: rotate(-90deg);
+      padding-left: 0.3em;
+    }
+  }
+}
+.zb-sharing-menu__items {
+  // we animate both margin & max-height so it looks smoother
+  @include transition();
+  height: 0; // animated
+  margin: 0; // animated
+  overflow: hidden; // needed for animation
+  padding: 0;
+  display: inline-block;
+  margin-left: 0;
+  opacity: 0;
+  @include bp(large) {
+    margin-left: 304px;
+  }
+
+  &.is-expanded {
+    height: auto !important; // animated
+    margin: 0; // animated
+    margin-left: 0;
+    overflow: hidden; // needed for animation
+    padding: 0;
+    opacity: 1;
+    @include bp(large) {
+      margin-left: 304px;
+    }
+  }
+}
+.zb-sharing-menu__item {
+  display: inline-block;
+  &:before {
+      content: " / ";
+      color: $color__text-meta;
+      margin: 0 8px;
+  }
+  &:first-child:before {
+    content: none
+  }
+}
+.zb-sharing-menu__item--whatsapp {
+  @include bp(large) {
+    display: none;
+  }
+}
+.zb-sharing-menu__link {
+  font-weight: bold;
+  line-height: 2.0;
+  &:hover {
+    border-bottom: 1px solid currentColor;
+  }
+}
+.zb-sharing-menu__link--facebook,
+.zb-sharing-menu__link--facebook:hover,
+.zb-sharing-menu__link--facebook:active,
+.zb-sharing-menu__link--facebook:link,
+.zb-sharing-menu__link--facebook:visited {
+  color: $color-facebook;
+}
+
+.zb-sharing-menu__link--twitter,
+.zb-sharing-menu__link--twitter:hover,
+.zb-sharing-menu__link--twitter:active,
+.zb-sharing-menu__link--twitter:link,
+.zb-sharing-menu__link--twitter:visited {
+  color: $color-twitter;
+}
+
+.zb-sharing-menu__link--whatsapp,
+.zb-sharing-menu__link--whatsapp:hover,
+.zb-sharing-menu__link--whatsapp:active,
+.zb-sharing-menu__link--whatsapp:link,
+.zb-sharing-menu__link--whatsapp:visited {
+  color: $color-whatsapp;
+}
+
+.zb-sharing-menu__link--mail {
+  color: $color__text-meta;
+}

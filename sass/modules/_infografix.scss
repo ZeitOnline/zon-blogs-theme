@@ -1,0 +1,116 @@
+// styles for "external" content
+// intended for Datenjournalismus & Co.
+// prefixed with "x"
+
+// text styles
+.x-headline,
+.x-subheadline,
+.x-copytext,
+.x-footer,
+.x-footer--borderless {
+  font-family: $font__main;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+}
+
+.x-headline {
+  font-size: 20px;
+  line-height: 1.25;
+  margin-bottom: 0.5em;
+  margin-top: 1.4em;
+
+  @include bp(large) {
+    font-size: 24px;
+  }
+}
+
+.x-subheadline,
+.x-subheadline--borderless {
+  font-size: 18px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+
+  @include bp(large) {
+    font-size: 20px;
+  }
+}
+
+.x-subheadline {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.x-copytext,
+.x-copytext--size {
+  font-size: 15px;
+
+  @include bp(large) {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.x-caption {
+  &,
+  &--sans,
+  &--serif {
+    @include clearfix;
+
+    font-size: 15px;
+    line-height: 1.5;
+
+    @include bp(large) {
+      font-size: 16px;
+    }
+  }
+
+  &--sans {
+    color: #707070;
+    font-family: $font__main;
+  }
+
+  &--serif {
+    color: #444;
+    font-family: $font__second;
+    font-style: italic;
+  }
+}
+
+.x-footer,
+.x-footer--borderless {
+  @include clearfix;
+
+  color: #707070;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.x-footer {
+  border-top: 1px solid #ddd;
+  padding-top: 0.5rem;
+}
+
+.x-copyright {
+  float: right;
+}
+
+// vertical space
+.x-spacing {
+  margin-top: 20px;
+  margin-bottom: 20px;
+
+  &--paragraph {
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+  }
+
+  &--large {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
+
+.x-picturefill img {
+  max-width: 100%;
+}
