@@ -6,18 +6,18 @@
 }
 .zb-icon-author {
   @extend .zb-icon;
-  background: url('/wp-content/themes/zb/images/icons/komm-autor.svg') no-repeat bottom left;
+  background: url('images/icons/komm-autor.svg') no-repeat bottom left;
 }
 .zb-icon-sort-newest {
   @extend .zb-icon;
-  background: url('/wp-content/themes/zb/images/icons/komm-sort-neueste.svg') no-repeat bottom left;
+  background: url('images/icons/komm-sort-neueste.svg') no-repeat bottom left;
 }
 .zb-icon-sort-oldest {
   @extend .zb-icon;
-  background: url('/wp-content/themes/zb/images/icons/komm-sort-aelteste.svg') no-repeat bottom left;
+  background: url('images/icons/komm-sort-aelteste.svg') no-repeat bottom left;
 }
 .zb-icon-search {
   @extend .zb-icon;
-  background: url('/wp-content/themes/zb/images/icons/search.svg') no-repeat bottom left;
+  background: url('images/icons/search.svg') no-repeat bottom left;
   background-size: 15px 15px;
 }
