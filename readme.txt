@@ -14,4 +14,3 @@ License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
 * Based on Zeit Online Blogs Twentyfifteen by Palasthotel and ZEIT ONLINE
 * Based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
-
