@@ -1,5 +1,6 @@
 *.sublime-project
 *.sublime-workspace
+*.map
 .DS_Store
 .sass-cache
 .cache/
