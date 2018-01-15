@@ -127,7 +127,10 @@ if ( have_comments() && (! zb_get_meta( 'zb_hide_medium_rectangle' ) && ( zb_get
 			'" size="30"' . $aria_req . ' /></p>',
 	);
 
-	$sso_user_data = z_auth_decode_master_cookie();
+	$sso_user_data = NULL;
+	if ( function_exists( ' z_auth_decode_master_cookie' ) ) {
+		$sso_user_data = z_auth_decode_master_cookie();
+	}
 
 	if ($user_ID) {
 		comment_form( array('comment_notes_after' => '', 'label_submit' => 'Absenden' ) );
