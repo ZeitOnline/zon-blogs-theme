@@ -407,6 +407,20 @@ if ( ! function_exists( 'zb_comments_nav' ) ) :
 	}
 endif;
 
+/*
+ * Make a separate feed available
+ * for ZON-Article XML under the URL
+ * http://blog.zeit.de/[pathtoarticle]?feed=articlexml
+ * The corresponding template can be found in the theme directory
+ * in the file articlexml.php
+ */
+if ( ! function_exists( 'create_my_articlexml' ) ) :
+	function create_my_articlexml() {
+		load_template( TEMPLATEPATH . '/articlexml.php');
+	}
+	add_action('do_feed_articlexml', 'create_my_articlexml', 10, 1);
+endif;
+
 
 // repair defected article feed
 function custom_feed_rewrite($wp_rewrite) {
