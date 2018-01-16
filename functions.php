@@ -512,3 +512,41 @@ if ( ! function_exists( 'add_blogtitle_to_category' ) ) {
 	}
 	add_filter( 'the_category_rss', 'add_blogtitle_to_category' );
 }
+
+/*
+ * Add iframe to tiny mce (who ever uses this???)
+ */
+add_filter( 'tiny_mce_before_init',
+	create_function( '$a',
+	'$a["extended_valid_elements"] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]"; return $a;'
+	)
+);
+
+/*
+ * Add iframe and script to the list of allowed html
+ * replace old kses, which also added object, param and embed
+ * and a bunch of html5 tags, that we're eventually added by
+ * wordpress itself
+ */
+if ( ! function_exists( 'zon_add_tags_to_kses' ) ) {
+	function zon_add_tags_to_kses( $tags ) {
+		$tags['iframe'] = array(
+			'src' => array (),
+			'width' => array (),
+			'height' => array (),
+			'scrolling' => array (),
+			'marginheight' => array (),
+			'marginwidth' => array (),
+			'frameborder' => array ()
+		);
+		$tags['script'] = array(
+			'src' => array (),
+			'type' => array (),
+			'version' => array (),
+			'defer' => array (),
+			'language' => array ()
+		);
+		return $tags;
+	}
+	add_filter( 'wp_kses_allowed_html', 'zon_add_tags_to_kses' );
+}

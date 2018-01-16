@@ -15,7 +15,7 @@ get_header(); ?>
 
 	<?php if( is_front_page() ){ ?>
     <div class="site-content__navigation__category">
-	    <?php 
+	    <?php
 	    print zb_cats_nav();
 	    ?>
 	  </div>
