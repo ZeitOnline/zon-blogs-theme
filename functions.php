@@ -499,3 +499,16 @@ if ( ! function_exists( 'zb_is_wrapped' ) ) {
 		return strpos( $_SERVER['HTTP_USER_AGENT'], 'ZONApp' ) !== false;
 	}
 }
+
+/*
+ * Fügt im RSS-Feed als erstes <category-Tag den Blogtitel ein
+ * Wird zur für die Darstellung der Blogs im RSS-Widget auf den
+ * Politik CPs benutzt
+ */
+if ( ! function_exists( 'add_blogtitle_to_category' ) ) {
+	function add_blogtitle_to_category( $content ) {
+		$blog_title = '<category>'.get_bloginfo('name').'</category>'."\n";
+		return $blog_title.$content;
+	}
+	add_filter( 'the_category_rss', 'add_blogtitle_to_category' );
+}
