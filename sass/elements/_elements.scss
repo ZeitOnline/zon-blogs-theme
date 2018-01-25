@@ -74,3 +74,24 @@ figure {
 .visually-hidden {
   visibility: hidden;
 }
+
+// responsive iframe
+.embed-container {
+	height: 0;
+	max-width: 100%;
+	overflow: hidden;
+	padding-bottom: 56.25%;
+	position: relative;
+	embed,
+	iframe,
+	object {
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	iframe {
+		border: none;
+	}
+}
