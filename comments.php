@@ -141,23 +141,35 @@ if ( have_comments() && (! zb_get_meta( 'zb_hide_medium_rectangle' ) && ( zb_get
 		if ( !empty($sso_user_data->email) ) {
 			$fields['email'] = '<input name="email" type="hidden" value="' . esc_attr($sso_user_data->email) . '" />';
 		}
-		comment_form( array('fields'=>$fields,'comment_notes_after' => '', 'label_submit' => 'Absenden' ) );
+		comment_form( array('fields'=>$fields, 'comment_notes_after' => '', 'label_submit' => 'Absenden' ) );
 	}
 	else//not logged in
 	{
-?>
-<form class="comment-login" id="comment-form">
-				<p>
-						Bitte melden Sie sich an, um zu kommentieren.
-				</p>
-										<a class="button" href="https://meine.zeit.de/anmelden?url=<?php echo urlencode(get_permalink()); ?>&entry_service=blog_kommentare">
-								Anmelden
-						</a>
-						<a class="button" href="https://meine.zeit.de/registrieren?url=<?php echo urlencode(get_permalink()); ?>&entry_service=blog_kommentare">
-						Registrieren
-						</a>
-</form>
-<?php
+		$permlink = urlencode( get_permalink() );
+		$html = <<<EOT
+		<p>Bitte melden Sie sich an, um zu kommentieren.</p>
+		<a class="button" href="https://meine.zeit.de/anmelden?$permlink&entry_service=blog_kommentare">Anmelden</a>
+		<a class="button" href="https://meine.zeit.de/registrieren?url=$permlink&entry_service=blog_kommentare">Registrieren</a>
+EOT;
+		$fields = array(
+			'author' => '',
+			'email' => '',
+			'url' => ''
+		);
+		$args = array(
+			'action' => '',
+			'id_form' => 'comment-login',
+			'class_form' => 'comment-form',
+			'logged_in_as' => '',
+			'submit_button' => '',
+			'title_reply' => '',
+			'title_reply_to' => '',
+			'comment_notes_before' => '',
+			'must_log_in' => '',
+			'comment_field' => $html,
+			'fields' => $fields
+		);
+		comment_form( $args );
 	}
 ?></div>
 </div><!-- .comments-wrapper -->
