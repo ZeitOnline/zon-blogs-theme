@@ -24,6 +24,10 @@ on console.
 Use github-update plugin to install theme in your local development machine.
 
 
+== Changes ==
+= 1.3.2 =
+* Update arbitrary comment form code to use comment_form() hook to make it pluggable for zon-maintenance
+
 == Credits ==
 
 * Based on Zeit Online Blogs Twentyfifteen by Palasthotel and ZEIT ONLINE
