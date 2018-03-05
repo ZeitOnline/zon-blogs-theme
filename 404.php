@@ -21,7 +21,7 @@ get_header(); ?>
 					<ul>
             <li>Ältere Artikel finden Sie nach Jahr und Ausgabe sortiert im <a href="http://www.zeit.de/archiv/" title="ZEIT Online Archiv">Archiv</a>.</li>
             <li>Haben Sie Anmerkungen oder Anregungen? Dann können Sie uns über <a href="http://www.zeit.de/hilfe/hilfe/" title="ZHilfe">Email oder Twitter kontaktieren</a>.</li>
-            <li>Sie können zur <a href="<?php echo get_home_url(); ?>/">Startseite</a> zurückkehren.</li>
+            <li>Sie können zur <a href="<?php echo trailingslashit( get_home_url() ); ?>">Startseite</a> zurückkehren.</li>
             <li>Sie können die Suche verwenden:</li>
 					</ul>
 

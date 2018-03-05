@@ -5,7 +5,7 @@ Tags: translation-ready, custom-background, theme-options, custom-menu, post-for
 
 Requires at least: 4.0  
 Tested up to: 4.9.1  
-Stable tag: 1.3.3  
+Stable tag: 1.3.4  
 License: GPLv3 or later  
 License URI: http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -25,6 +25,9 @@ on console.
 
 ### 1.3.3
 * Add missing slashes
+
+### 1.3.4
+* Use trailingslashit instead
 
 
 ## Credits
