@@ -7,10 +7,10 @@
 
 ?>
 <!-- template-parts/content-single.php -->
-<a class="entry-backlink desktop-only" href="<?php echo get_home_url(); ?>">‹ <?php esc_html_e( 'all entries', 'zb' ); ?></a>
+<a class="entry-backlink desktop-only" href="<?php echo get_home_url(); ?>/">‹ <?php esc_html_e( 'all entries', 'zb' ); ?></a>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>		
+		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 		<div class="entry-meta">
 			<?php zb_posted_on( 'long' ); ?>
 		</div><!-- .entry-meta -->
@@ -21,7 +21,7 @@
       zb_render_content_with_ads( apply_filters( 'the_content', get_the_content() ), zb_get_meta( 'zb_medium_rectangle_paragraph', 1 ) );
     ?>
 	</div><!-- .entry-content -->
-	
+
 	<footer class="entry-footer">
   	<div class="entry-footer__options">
 		  <?php zb_posted_by(); ?> <span class="entry-footer__option-seperator desktop-only">/</span>
