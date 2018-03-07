@@ -25,14 +25,18 @@ Use github-update plugin to install theme in your local development machine.
 
 
 == Changes ==
-= 1.3.2 =
-* Update arbitrary comment form code to use comment_form() hook to make it pluggable for zon-maintenance
+
+= 1.3.5 =
+* Fix placement of mobile fullwidth ad
+
+= 1.3.4 =
+* Use trailingslashit instead
 
 = 1.3.3 =
 * Add missing slashes
 
-= 1.3.4 =
-* Use trailingslashit instead
+= 1.3.2 =
+* Update arbitrary comment form code to use comment_form() hook to make it pluggable for zon-maintenance
 
 == Credits ==
 
