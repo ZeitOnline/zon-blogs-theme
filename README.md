@@ -23,15 +23,20 @@ on console.
 
 ## Changes
 
-### 1.3.3
-* Add missing slashes
+### 1.3.5
+- Fix placement of mobile fullwidth ad
 
 ### 1.3.4
-* Use trailingslashit instead
+- Use trailingslashit instead
 
+### 1.3.3
+- Add missing slashes
+
+### 1.3.2
+- Update arbitrary comment form code to use comment_form() hook to make it pluggable for zon-maintenance
 
 ## Credits
 
-* Based on Zeit Online Blogs Twentyfifteen by Palasthotel and ZEIT ONLINE
-* Based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+- Based on Zeit Online Blogs Twentyfifteen by Palasthotel and ZEIT ONLINE
+- Based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 
