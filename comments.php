@@ -128,7 +128,7 @@ if ( have_comments() && (! zb_get_meta( 'zb_hide_medium_rectangle' ) && ( zb_get
 	);
 
 	$sso_user_data = NULL;
-	if ( function_exists( ' z_auth_decode_master_cookie' ) ) {
+	if ( function_exists( 'z_auth_decode_master_cookie' ) ) {
 		$sso_user_data = z_auth_decode_master_cookie();
 	}
 
