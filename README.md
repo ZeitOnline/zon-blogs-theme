@@ -23,6 +23,9 @@ on console.
 
 ## Changes
 
+### 1.3.6
+- BUG-887: Fix typo in comment condition
+
 ### 1.3.5
 - Fix placement of mobile fullwidth ad
 

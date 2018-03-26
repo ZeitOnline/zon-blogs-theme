@@ -26,6 +26,9 @@ Use github-update plugin to install theme in your local development machine.
 
 == Changes ==
 
+= 1.3.6 =
+* BUG-887: Fix typo in comment condition
+
 = 1.3.5 =
 * Fix placement of mobile fullwidth ad
 
