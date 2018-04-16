@@ -26,6 +26,9 @@ Use github-update plugin to install theme in your local development machine.
 
 == Changes ==
 
+= 1.4.0 =
+* ZON-4512: Render Ligatus content recommendations
+
 = 1.3.6 =
 * BUG-887: Fix typo in comment condition
 
