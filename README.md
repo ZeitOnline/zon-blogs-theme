@@ -23,6 +23,9 @@ on console.
 
 ## Changes
 
+### 1.4.0
+- ZON-4512: Render Ligatus content recommendations
+
 ### 1.3.6
 - BUG-887: Fix typo in comment condition
 
