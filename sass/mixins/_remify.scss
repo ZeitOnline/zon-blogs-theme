@@ -1,0 +1,32 @@
+// Defaults
+$base_font_size: 16px;
+$rem_fallback: true;
+
+// Usage: rem(16px);
+@function rem(
+  $size,
+  $base_font_size: $base_font_size
+) {
+  @return #{$size / $base_font_size}rem;
+}
+
+// Usage: em(16px);
+@function em(
+  $size,
+  $base_font_size: $base_font_size
+) {
+  @return #{$size / $base_font_size}em;
+}
+
+// Usage: @include remify(font-size, 16px);
+@mixin remify(
+	$property,
+	$size,
+	$rem_fallback: $rem_fallback,
+	$base_font_size: $base_font_size
+) {
+	@if $rem_fallback {
+		#{$property}: $size;
+	}
+	#{$property}: rem($size, $base_font_size);
+}
