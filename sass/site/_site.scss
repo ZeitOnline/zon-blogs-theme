@@ -21,7 +21,7 @@
 
 .site-header__site-supertitle {
 
-	font-size: 20px;
+	font-size: rem(20px);
 	text-decoration:none;
 	color: white;
 	padding-bottom: 0.4em;
@@ -87,7 +87,7 @@
 	@include bp(large) {
 		margin-left:0;
 		text-align: center;
-		font-size: 34px;
+		font-size: rem(34px);
 	}
 }
 

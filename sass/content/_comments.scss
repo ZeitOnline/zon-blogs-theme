@@ -129,7 +129,7 @@
 
 .zb-comment-author-name {
 	font-weight: bold;
-	font-size: 16px;
+	font-size: rem(16px);
 	margin-top: 15px;
 	display: inline-block;
 	float: left;
@@ -164,7 +164,7 @@
 }
 .zb-comment-meta {
 	@extend .zb-text-meta;
-	font-size: 12px;
+	font-size: rem(12px);
 	letter-spacing: 0.03em;
 	float: right;
 	@include bp(large) {

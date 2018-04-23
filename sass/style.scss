@@ -4,7 +4,7 @@ Theme URI:        https://github.com/ZeitOnline/zon-blogs-theme
 Author:           ZEIT ONLINE, Palasthotel
 Author URI:       http://www.zeit.de
 Description:      Theme for the ZEIT ONLINE Blogs 2018
-Version:          1.4.0
+Version:          1.5.0
 Text Domain:      zb
 License:          GPL-3.0+
 License URI:      http://www.gnu.org/licenses/gpl-3.0.txt
@@ -13,6 +13,7 @@ GitHub Theme URI: https://github.com/ZeitOnline/zon-blogs-theme
 Zeit Online Blogs Twentyeighteen ist based on Zeit Online Blogs Twentyfifteen by Palasthotel, which was based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
 Underscores is distributed under the terms of the GNU GPL v2 or later.
 */
+@import "mixins/remify";
 
 @import "variables-site/variables-site";
 @import "mixins/mixins";
