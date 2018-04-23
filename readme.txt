@@ -26,6 +26,9 @@ Use github-update plugin to install theme in your local development machine.
 
 == Changes ==
 
+= 1.5.0 =
+* ZON-4509: Use relative font sizes (rem) in CSS
+
 = 1.4.0 =
 * ZON-4512: Render Ligatus content recommendations
 
