@@ -10,7 +10,7 @@ article.post, article.page {
 	color: $color__text-meta !important;
 	margin-top: 15px;
 	margin-left: 15px;
-	font-size: 13px;
+	font-size: rem(13px);
 	letter-spacing: 0.1em;
 	width: auto;
 	@include bp(large) {
