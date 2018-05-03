@@ -4,12 +4,9 @@
   "description": "zon blog theme css generator",
   "license": "GPLv3+",
   "private": true,
-  "dependencies": {
-    "npm": "^6.0.0"
-  },
   "devDependencies": {
     "autoprefixer": "8.4.1",
-    "livereload": "^0.7.0",
+    "livereload": "0.7.0",
     "node-sass": "4.9.0",
     "npm-run-all": "4.1.2",
     "postcss-cli": "5.0.0"
