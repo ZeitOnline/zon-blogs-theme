@@ -19,10 +19,11 @@ if ( post_password_required() ) {
 
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-if ( is_plugin_active('zon-ligatus/zon-ligatus.php') ) {
-	ZON_Ligatus::ligatus_container();
-} else {
+if ( is_plugin_active('zon-blog-outbrain/zon-blog-outbrain.php') ) {
 
+	do_action('zon_render_outbrain');
+
+} else {
 	if ( have_comments() && (! zb_get_meta( 'zb_hide_medium_rectangle' ) && ( zb_get_meta( 'zb_medium_rectangle' ) != 'hide-medium-rectangle' ) ) ) {
 		zb_render_ad( 'desktop', '5', 'ad-wrapper ad-container', 'article', 'Anzeige' );
 	}
