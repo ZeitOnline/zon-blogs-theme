@@ -5,7 +5,7 @@ Tags: translation-ready, custom-background, theme-options, custom-menu, post-for
 
 Requires at least: 4.0  
 Tested up to: 4.9.1  
-Stable tag: 1.3.4  
+Stable tag: 1.6.0  
 License: GPLv3 or later  
 License URI: http://www.gnu.org/licenses/gpl-3.0.html  
 
@@ -22,6 +22,12 @@ and to watch during development run
 on console.
 
 ## Changes
+
+### 1.6.0
+- Replace Ligaturs with Outbrain
+
+### 1.5.0
+- ZON-4509: Use relative font sizes (rem) in CSS
 
 ### 1.4.0
 - ZON-4512: Render Ligatus content recommendations
