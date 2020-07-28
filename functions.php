@@ -552,58 +552,57 @@ if ( ! function_exists( 'zon_add_tags_to_kses' ) ) {
 }
 
 // <!-- noformat on --> and <!-- noformat off --> functions
-
-function newautop($text)
+function newautop( $text )
 {
     $newtext = "";
     $pos = 0;
 
-    $tags = array('<!-- noformat on -->', '<!-- noformat off -->');
+    $tags = array( '<!-- noformat on -->', '<!-- noformat off -->' );
     $status = 0;
 
-    while (!(($newpos = strpos($text, $tags[$status], $pos)) === FALSE))
+    while ( ! ( ( $newpos = strpos( $text, $tags[ $status ], $pos ) ) === FALSE ) )
     {
-        $sub = substr($text, $pos, $newpos-$pos);
+        $sub = substr( $text, $pos, $newpos-$pos );
 
-        if ($status)
+        if ( $status ) {
             $newtext .= $sub;
-        else
+		} else {
             $newtext .= convert_chars(wptexturize(wpautop($sub)));      //Apply both functions (faster)
+		}
 
-        $pos = $newpos+strlen($tags[$status]);
+        $pos = $newpos + strlen( $tags[ $status ] );
 
-        $status = $status?0:1;
+        $status = $status ? 0 : 1;
     }
 
-    $sub = substr($text, $pos, strlen($text)-$pos);
+    $sub = substr( $text, $pos, strlen( $text ) - $pos );
 
-    if ($status)
-        $newtext .= $sub;
-    else
-        $newtext .= convert_chars(wptexturize(wpautop($sub)));      //Apply both functions (faster)
+    if ( $status ) {
+		$newtext .= $sub;
+	} else {
+		$newtext .= convert_chars(wptexturize(wpautop($sub)));      //Apply both functions (faster)
+	}
 
     //To remove the tags
-    $newtext = str_replace($tags[0], "", $newtext);
-    $newtext = str_replace($tags[1], "", $newtext);
+    $newtext = str_replace( $tags[0], "", $newtext );
+    $newtext = str_replace( $tags[1], "", $newtext );
 
     return $newtext;
 }
 
-function newtexturize($text)
-{
+function newtexturize( $text ) {
     return $text;
 }
 
-function new_convert_chars($text)
-{
+function new_convert_chars( $text ) {
     return $text;
 }
 
-remove_filter('the_content', 'wpautop');
-add_filter('the_content', 'newautop');
+remove_filter( 'the_content', 'wpautop' );
+add_filter( 'the_content', 'newautop' );
 
-remove_filter('the_content', 'wptexturize');
-add_filter('the_content', 'newtexturize');
+remove_filter( 'the_content', 'wptexturize' );
+add_filter( 'the_content', 'newtexturize' );
 
-remove_filter('the_content', 'convert_chars');
-add_filter('the_content', 'new_convert_chars');
+remove_filter( 'the_content', 'convert_chars' );
+add_filter( 'the_content', 'new_convert_chars' );

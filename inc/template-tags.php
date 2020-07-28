@@ -384,37 +384,37 @@ function var_template_part($slug, $name) {
 * @param $box_full			string|bool		fullwidth box as a special type for backwards compatibility
 */
 if ( ! function_exists('zb_render_content_with_ads') ) {
-	function zb_render_content_with_ads( $content, $ad_paragraph=1, $box_paragraph=2, $box=false, $box_full=false  ) {
+	function zb_render_content_with_ads( $content, $ad_paragraph=1, $box_paragraph=2, $box=false, $box_full=false ) {
 		$output = "";
-		$ad_paragraph = intval($ad_paragraph) - 1;
-		$box_paragraph = intval($box_paragraph) - 1;
+		$ad_paragraph = intval( $ad_paragraph ) - 1;
+		$box_paragraph = intval( $box_paragraph ) - 1;
 		$second_ad_paragraph = false;
 		$prefix = '<br style="clear:both;" />';
 		$prefix .= '<div class="widget-author-box widget-author-articlebox widget-author-articlebox-fullwidth">';
 		// seperate content into paragraphs
 		// only catch paragrqphs w/o attributes
 		preg_match_all( '/<p>(.*)<\/p>/', $content, $matches );
-		$items = count($matches[0]);
+		$items = count( $matches[ 0 ] );
 		if ( $items > 0 ) {
 			// if first para selected use min char length
 			if ( $ad_paragraph == 0  ) {
-				$ad_paragraph = determine_paragraph_by_length($matches[0], get_option( 'zon_ads_paragraph_length', 200 ));
+				$ad_paragraph = determine_paragraph_by_length( $matches[ 0 ], get_option( 'zon_ads_paragraph_length', 200 ) );
 			}
 			// enough space for 2nd ad?
 			if ( $ad_paragraph + 4 <= $items  ) {
 				$second_ad_paragraph = $ad_paragraph + 3;
 			}
 			$output = var_template_part( 'template-parts/ads', 'article-content-top' );
-			$ad_content = $output . $matches[0][$ad_paragraph];
-			$content = str_replace( $matches[0][$ad_paragraph], $ad_content, $content);
+			$ad_content = $output . $matches[ 0 ][ $ad_paragraph ];
+			$content = str_replace( $matches[ 0 ][ $ad_paragraph ], $ad_content, $content );
 			if ( $second_ad_paragraph ) {
 				$output = var_template_part( 'template-parts/ads', 'article-content-center' );
-				$ad_content = $output . $matches[0][$second_ad_paragraph];
-				$content = str_replace( $matches[0][$second_ad_paragraph], $ad_content, $content);
+				$ad_content = $output . $matches[ 0 ][ $second_ad_paragraph ];
+				$content = str_replace( $matches[ 0 ][ $second_ad_paragraph ], $ad_content, $content );
 			}
 			// add authorbox
 			if ( $box != 'hide-author-box') {
-				if ($box_paragraph == $ad_paragraph || $box_paragraph == $second_ad_paragraph) {
+				if ( $box_paragraph == $ad_paragraph || $box_paragraph == $second_ad_paragraph ) {
 					$box_paragraph++;
 				}
 				if (
@@ -432,8 +432,8 @@ if ( ! function_exists('zb_render_content_with_ads') ) {
 				dynamic_sidebar( 'article-author' );
 				print '</div>';
 				$output = ob_get_clean();
-				$authorbox = $output . $matches[0][$box_paragraph];
-				$content = str_replace( $matches[0][$box_paragraph], $authorbox, $content);
+				$authorbox = $output . $matches[ 0 ][ $box_paragraph ];
+				$content = str_replace( $matches[ 0 ][ $box_paragraph ], $authorbox, $content );
 			}
 
 		} else {
