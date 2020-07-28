@@ -358,13 +358,14 @@ function zb_category_transient_flusher() {
 add_action( 'edit_category', 'zb_category_transient_flusher' );
 add_action( 'save_post',     'zb_category_transient_flusher' );
 
-function determine_paragraph_by_length($paras, $min) {
+
+function determine_paragraph_by_length( $paras, $min ) {
 	$length = 0;
 	$index = -1;
-	do {
+	while ( $length <= $min ) {
 		$index++;
 		$length += strlen(strip_tags($paras[$index]));
-	} while ( $length <= $min );
+	};
 	return $index;
 }
 
