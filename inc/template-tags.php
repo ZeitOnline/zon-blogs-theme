@@ -358,72 +358,104 @@ function zb_category_transient_flusher() {
 add_action( 'edit_category', 'zb_category_transient_flusher' );
 add_action( 'save_post',     'zb_category_transient_flusher' );
 
+
+function determine_paragraph_by_length( $paras, $min ) {
+	$length = 0;
+	$index = -1;
+	while ( $length <= $min ) {
+		$index++;
+		$length += strlen(strip_tags($paras[$index]));
+	};
+	return $index;
+}
+
+function var_template_part($slug, $name) {
+	ob_start();
+	get_template_part( $slug, $name );
+	return ob_get_clean();
+}
+
 /**
-* Rendet article content with inlined ads
+* Renders article content with inlined ads and autorbox
+*
 * @param $content 	string 	the text content of an article
-* @param $first_ad_after_paragraph 	mixed 	int or string w/o number where the ad should be placed
+* @param $ad_paragraph 		mixed 			int or string w/o number where the ad should be placed
+* @param $box_paragraph 	mixed 			int or string w/o number where the authorbox should be placed
+* @param $box 				string|bool 	type of box or false
+* @param $box_full			string|bool		fullwidth box as a special type for backwards compatibility
 */
-if( ! function_exists('zb_render_content_with_ads') ) {
-	function zb_render_content_with_ads( $content, $first_ad_after_paragraph=1, $authorbox_paragraph=2, $authorbox=false, $authorbox_fullwidth=false  ) {
-		// seperate content by paragraphs
-		$array = explode( '</p>', $content );
-		$first_ad_after_paragraph = intval($first_ad_after_paragraph);
-		$items = count( $array );
-		$first_ad_after_paragraph = $first_ad_after_paragraph > $items-1 ? 1 : $first_ad_after_paragraph;
-		// define placement of second ad (3p after ad1)
-		$second_ad_after_paragraph = $items > 4 ? $first_ad_after_paragraph+3 : false;
-		$min = get_option( 'zon_ads_paragraph_length', 200 );
-		$length = 0;
-		$author_printed = false;
-		// use counting logic only if ad placement is automatic
-		if ( $first_ad_after_paragraph == 1 ) {
-			foreach ( $array as $key => $paragraph ) {
-				// move ad after paragraph with culminated 200 characters
-				$length += strlen( strip_tags( $paragraph ) );
-				if ( $key < 3 && $length < $min  ) {
-					$first_ad_after_paragraph++;
-					if ( $second_ad_after_paragraph ) {
-						$second_ad_after_paragraph++;
-					}
+if ( ! function_exists('zb_render_content_with_ads') ) {
+	function zb_render_content_with_ads( $content, $ad_paragraph=1, $box_paragraph=2, $box=false, $box_full=false ) {
+		$output = "";
+		$ad_paragraph = intval( $ad_paragraph ) - 1;
+		$box_paragraph = intval( $box_paragraph ) - 1;
+		$second_ad_paragraph = false;
+		$prefix = '<br style="clear:both;" />';
+		$prefix .= '<div class="widget-author-box widget-author-articlebox widget-author-articlebox-fullwidth">';
+		// seperate content into paragraphs
+		// only catch paragrqphs w/o attributes
+		preg_match_all( '/<p>(.*)<\/p>/', $content, $matches );
+		$items = count( $matches[ 0 ] );
+		if ( $items > 0 ) {
+			// if first para selected use min char length
+			if ( $ad_paragraph == 0  ) {
+				$ad_paragraph = determine_paragraph_by_length( $matches[ 0 ], get_option( 'zon_ads_paragraph_length', 200 ) );
+			}
+			// enough space for 2nd ad?
+			if ( $ad_paragraph + 4 <= $items  ) {
+				$second_ad_paragraph = $ad_paragraph + 3;
+			}
+			$output = var_template_part( 'template-parts/ads', 'article-content-top' );
+			$ad_content = $output . $matches[ 0 ][ $ad_paragraph ];
+			$content = str_replace( $matches[ 0 ][ $ad_paragraph ], $ad_content, $content );
+			if ( $second_ad_paragraph ) {
+				$output = var_template_part( 'template-parts/ads', 'article-content-center' );
+				$ad_content = $output . $matches[ 0 ][ $second_ad_paragraph ];
+				$content = str_replace( $matches[ 0 ][ $second_ad_paragraph ], $ad_content, $content );
+			}
+			// add authorbox
+			if ( $box != 'hide-author-box') {
+				if ( $box_paragraph == $ad_paragraph || $box_paragraph == $second_ad_paragraph ) {
+					$box_paragraph++;
 				}
-			}
-		}
-		foreach ( $array as $key => $paragraph ) {
-			print $paragraph;
-			if ( $key == $first_ad_after_paragraph-1 && strlen($paragraph) > 1 ) {
-				get_template_part( 'template-parts/ads', 'article-content-top' );
-			}
-			elseif ( $second_ad_after_paragraph && $key == $second_ad_after_paragraph-1 && strlen($paragraph) > 1 ) {
-				get_template_part( 'template-parts/ads', 'article-content-center' );
-			}
-			elseif ( 
-			  $key == $authorbox_paragraph-1 
-			  && !$authorbox_fullwidth 
-			  && ( $authorbox != 'bottom-author-box' ) 
-			  && ( $authorbox != 'hide-author-box' ) 
-			) {
-				print '<div class="widget-author-box widget-author-articlebox">';
+				if (
+					! $box_full &&
+					( $box != 'bottom-author-box' ) &&
+					( $box != 'hide-author-box' ) &&
+					$box_paragraph < $items
+				) {
+					$prefix = '<div class="widget-author-box widget-author-articlebox">';
+				} else {
+					$box_paragraph = $items - 1;
+				}
+				ob_start();
+				print $prefix;
 				dynamic_sidebar( 'article-author' );
 				print '</div>';
-				$author_printed = true;
+				$output = ob_get_clean();
+				$authorbox = $output . $matches[ 0 ][ $box_paragraph ];
+				$content = str_replace( $matches[ 0 ][ $box_paragraph ], $authorbox, $content );
+			}
+
+		} else {
+			// if there IS nothing to replace at least add the author to the bottom
+			if ( $box != 'hide-author-box' ) {
+				ob_start();
+				print $prefix;
+				dynamic_sidebar( 'article-author' );
+				print '</div>';
+				$output = ob_get_clean();
 			}
 		}
-		if ( 
-			( $authorbox != 'hide-author-box')  && 
-			( $authorbox === 'bottom-author-box' || !$author_printed  || $authorbox_fullwidth ) 
-		) {
-			print '<br style="clear:both;" />';
-			print '<div class="widget-author-box widget-author-articlebox widget-author-articlebox-fullwidth">';
-			dynamic_sidebar( 'article-author' );
-			print '</div>';
-		}
+		// fire!
+		print $content . $output;
 	}
 }
 
 if( ! function_exists( 'zb_render_ad' ) ) {
 	/**
 	 * Render function to display ad code in blog pages
-	 * 
+	 *
 	 * @param  string $type The type of the ad delivered, i.e. mobile or desktop
 	 * @param  string $tilenumber The number of the iqadtile, iqadtile16 for instance
 	 * @param  string $wrapperclass CSS-Classnames for the wrapping container
@@ -461,7 +493,7 @@ EOT;
 			$modificator = $type == 'desktop' ? '!' : '';
 			$comment = $comment ? $comment : 'ad-' . $type . '-' . $tilenumber;
 			$container_start = $containerclasses ? '<div class="' . $containerclasses . '">' : '';
-			$container_end = $container_start ? '</div>' : ''; 
+			$container_end = $container_start ? '</div>' : '';
 			$search = array(
 				'{{ type }}',
 				'{{ tilenumber }}',
