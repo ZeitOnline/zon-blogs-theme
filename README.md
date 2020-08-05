@@ -23,6 +23,9 @@ on console.
 
 ## Changes
 
+### 1.6.1
+- Refactor zb_render_content_with_ads
+
 ### 1.6.0
 - Replace Ligaturs with Outbrain
 
