@@ -445,10 +445,11 @@ if ( ! function_exists('zb_render_content_with_ads') ) {
 				dynamic_sidebar( 'article-author' );
 				print '</div>';
 				$output = ob_get_clean();
+				$content .= $output;
 			}
 		}
 		// fire!
-		print $content . $output;
+		print $content;
 	}
 }
 
