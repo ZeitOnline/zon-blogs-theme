@@ -5,7 +5,7 @@ Tags: translation-ready, custom-background, theme-options, custom-menu, post-for
 
 Requires at least: 4.0
 Tested up to: 4.9.1
-Stable tag: 1.6.0
+Stable tag: 1.6.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -26,7 +26,13 @@ Use github-update plugin to install theme in your local development machine.
 
 == Changes ==
 
-= 1.6.0 ?
+= 1.6.2 =
+* Fix bug in authorbox code
+
+= 1.6.1 =
+* Refactor zb_render_content_with_ads
+
+= 1.6.0 =
 * Replace Ligatus with Outbrain
 
 = 1.5.0 =
