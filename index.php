@@ -46,10 +46,11 @@ get_header(); ?>
 					 */
 					get_template_part( 'template-parts/content', get_post_format() );
 					if ( $counter == 1) {
-						zb_render_ad( 'mobile', '3', 'ad-wrapper ad-wrapper-fullwidth', 'blog', '', 'ad-medium-rectangle' );
+						zb_render_ad( 'mobile', '1', 'ad-wrapper ad-wrapper-fullwidth', 'blog', '', 'ad-medium-rectangle' );
 					}
 					if ( $counter == 2) {
-  						zb_render_ad( 'desktop', '8', 'ad-wrapper ad-wrapper-fullwidth', 'blog', 'Anzeige', 'ad-medium-rectangle' );
+						zb_render_ad( 'mobile', '3', 'ad-wrapper ad-wrapper-fullwidth', 'blog', '', 'ad-medium-rectangle' );
+						zb_render_ad( 'desktop', '8', 'ad-wrapper ad-wrapper-fullwidth', 'blog', 'Anzeige', 'ad-medium-rectangle' );
 					}
 					if ( $counter == 5) {
 						zb_render_ad( 'desktop', '4', 'ad-wrapper ad-wrapper-fullwidth', 'blog', 'Anzeige' );
