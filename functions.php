@@ -514,15 +514,6 @@ if ( ! function_exists( 'add_blogtitle_to_category' ) ) {
 }
 
 /*
- * Add iframe to tiny mce (who ever uses this???)
- */
-add_filter( 'tiny_mce_before_init',
-	create_function( '$a',
-	'$a["extended_valid_elements"] = "iframe[id|class|title|style|align|frameborder|height|longdesc|marginheight|marginwidth|name|scrolling|src|width]"; return $a;'
-	)
-);
-
-/*
  * Add iframe and script to the list of allowed html
  * replace old kses, which also added object, param and embed
  * and a bunch of html5 tags, that we're eventually added by
