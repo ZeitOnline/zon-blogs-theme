@@ -16,20 +16,21 @@
 		</div><!-- .entry-meta -->
 		<div class="horizontal-line-long">&nbsp;</div>
 	</header><!-- .entry-header -->
+	<?php zb_render_ad( 'mobile', '1', 'ad-wrapper ad-wrapper-fullwidth', 'blog', '', 'ad-medium-rectangle' ); ?>
 	<div class="entry-content">
-		<?php
-      zb_render_content_with_ads( apply_filters( 'the_content', get_the_content() ), zb_get_meta( 'zb_medium_rectangle_paragraph', 1 ) );
-    ?>
+	<?php
+		zb_render_content_with_ads( apply_filters( 'the_content', get_the_content() ), zb_get_meta( 'zb_medium_rectangle_paragraph', 1 ) );
+	?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-  	<div class="entry-footer__options">
-		  <?php zb_posted_by(); ?> <span class="entry-footer__option-seperator desktop-only">/</span>
-      <a href="javascript:window.print()" class="print-link desktop-only"><?php esc_html_e( 'Print article', 'zb' ); ?></a> <span class="entry-footer__option-seperator desktop-only">/</span>
-		  <?php zb_sharing_menu(); ?>
-  	</div>
+		<div class="entry-footer__options">
+			<?php zb_posted_by(); ?> <span class="entry-footer__option-seperator desktop-only">/</span>
+			<a href="javascript:window.print()" class="print-link desktop-only"><?php esc_html_e( 'Print article', 'zb' ); ?></a> <span class="entry-footer__option-seperator desktop-only">/</span>
+			<?php zb_sharing_menu(); ?>
+		</div>
 		<p class="entry-footer__categories-headline"><?php esc_html_e( 'Category', 'zb' ); ?></p>
-    <span class="entry-footer__categories"><?php the_category( ', ' ); ?></span>
+		<span class="entry-footer__categories"><?php the_category( ', ' ); ?></span>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
 

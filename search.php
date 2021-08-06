@@ -16,11 +16,10 @@ get_header(); ?>
 				<h1 class="page-title"><?php printf( esc_html__( 'Search Results for: %s', 'zb' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 			</header><!-- .page-header -->
 
-			<?php /* Start the Loop */ 
+			<?php /* Start the Loop */
 			$counter = 1;
 			?>
 			<?php while ( have_posts() ) : the_post(); ?>
-
 				<?php
 				/**
 				 * Run the loop for the search to output the results.
@@ -28,8 +27,18 @@ get_header(); ?>
 				 * called content-search.php and that will be used instead.
 				 */
 				get_template_part( 'template-parts/content', get_post_format() );
-				if( $counter == 2) {
-  					get_template_part( 'template-parts/ads', 'tile7' );
+				if ( $counter == 1) {
+					zb_render_ad( 'mobile', '1', 'ad-wrapper ad-wrapper-fullwidth', 'blog', '', 'ad-medium-rectangle' );
+				}
+				if ( $counter == 2) {
+					zb_render_ad( 'mobile', '3', 'ad-wrapper ad-wrapper-fullwidth', 'blog', '', 'ad-medium-rectangle' );
+					zb_render_ad( 'desktop', '8', 'ad-wrapper ad-wrapper-fullwidth', 'blog', 'Anzeige', 'ad-medium-rectangle' );
+				}
+				if ( $counter == 5) {
+					zb_render_ad( 'desktop', '4', 'ad-wrapper ad-wrapper-fullwidth', 'blog', 'Anzeige' );
+				}
+				if ( $counter == 8) {
+					zb_render_ad( 'mobile', '4', 'ad-wrapper ad-wrapper-fullwidth',  'blog', '', 'ad-medium-rectangle' );
 				}
 				$counter++;
 				?>

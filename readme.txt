@@ -25,6 +25,8 @@ Use github-update plugin to install theme in your local development machine.
 
 
 == Changes ==
+= 1.6.3 =
+* Add anti cls ad scheme to blogs
 
 = 1.6.2 =
 * Fix bug in authorbox code
