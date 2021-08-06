@@ -25,6 +25,9 @@ Use github-update plugin to install theme in your local development machine.
 
 
 == Changes ==
+= 1.6.4 =
+* Remove tiny mce filter for iframe
+
 = 1.6.3 =
 * Add anti cls ad scheme to blogs
 

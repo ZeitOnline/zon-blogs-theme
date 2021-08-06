@@ -22,8 +22,12 @@ and to watch during development run
 on console.
 
 ## Changes
+### 1.6.4
+- Remove tiny mce filter for iframe
+
 ### 1.6.3
 - Add anti cls ad scheme to blogs
+
 ### 1.6.2
 - Fix bug in authorbox code
 
