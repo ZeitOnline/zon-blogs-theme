@@ -1,3 +1,7 @@
+$premium-rectangle: 416px;
+$halfpage-ad: 600px;
+$high-impact-ad: 320px;
+
 .ad-wrapper-fullwidth {
 	padding: 24px 0;
 }
@@ -37,5 +41,33 @@
 	@include bp(1000px) {
 		display: block;
 		margin: 0 -190px;
+	}
+}
+
+
+.ad-wrapper[data-type="desktop"] {
+	display: none;
+	@include bp(medium) {
+		display: block;
+	}
+}
+
+.ad-wrapper[data-type="mobile"] {
+	display: block;
+	@include bp(medium) {
+		display: none; // generally hidden on desktop
+	}
+
+	&[data-tile="1"] > div {
+		min-height: $premium-rectangle;
+	}
+
+	&[data-tile="3"] > div,
+	&[data-tile^="4"] > div { // 4, 41, 42 ff.
+		min-height: $halfpage-ad;
+	}
+
+	&[data-tile="99"] > div {
+		min-height: $high-impact-ad;
 	}
 }
