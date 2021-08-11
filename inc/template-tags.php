@@ -470,7 +470,7 @@ if( ! function_exists( 'zb_render_ad' ) ) {
 		if ( ! get_option( 'zon_ads_deactivated' ) ) {
 			$template = <<< EOT
 <!-- {{ comment }} -->
-<div class="{{ wrapperclasses }}">
+<div class="{{ wrapperclasses }}" data-type="{{ type }}" data-tile="{{ tilenumber }}">
 	{{ container_start }}
 		<script id="ad-{{ type }}-{{ tilenumber }}">
 			if ( typeof AdController !== 'undefined' && {{ modificator }}window.Zeit.isMobileView() ) {

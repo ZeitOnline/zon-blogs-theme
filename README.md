@@ -22,6 +22,10 @@ and to watch during development run
 on console.
 
 ## Changes
+
+### 1.6.5
+- Add anti-cls ad styles
+
 ### 1.6.4
 - Remove tiny mce filter for iframe
 
