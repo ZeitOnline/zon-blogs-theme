@@ -502,6 +502,9 @@ if( ! function_exists( 'zb_render_ad' ) ) {
 	/**
 	 * Render function to display ad code in blog pages
 	 *
+	 * @since	0.1
+	 * @deprecated	1.7.0	Use `zb_place_ad()`
+	 * @see	zb_place_ad()
 	 * @param  string $type The type of the ad delivered, i.e. mobile or desktop
 	 * @param  string $tilenumber The number of the iqadtile, iqadtile16 for instance
 	 * @param  string $wrapperclass CSS-Classnames for the wrapping container
