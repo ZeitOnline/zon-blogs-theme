@@ -10,7 +10,7 @@
 	}
 }
 
-.ad-container[data-type="desktop"].ad-floated-right {
+.post .ad-container[data-type="desktop"].ad-floated-right {
 	padding: 0;
 	margin: 0 -15px;
 	@include bp(medium) {
@@ -36,10 +36,11 @@
 	}
 }
 
-.ad-container[data-type="desktop"].ad-fullwidth {
+.post .ad-container[data-type="desktop"].ad-fullwidth {
 	display: none;
 	@include bp(1000px) {
 		display: block;
-		margin: 0 -230px;
+		margin: 0 calc((620px - 1000px) / 2);
+		width: 1000px;
 	}
 }
