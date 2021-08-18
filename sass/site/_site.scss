@@ -43,10 +43,11 @@
 	padding-top:2rem;
 	padding:1em;
 	min-height:6.0rem;
+	overflow: hidden;
 	position: relative;
 
 	.home & {
-	 min-height:17rem;
+		min-height:17rem;
 	}
 
 }
