@@ -31,17 +31,24 @@ get_header(); ?>
 					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 					 */
 					get_template_part( 'template-parts/content', get_post_format() );
-					if ( $counter == 1) {
-						zb_render_ad( 'mobile', '3', 'ad-wrapper ad-wrapper-fullwidth', 'ad-medium-rectangle' );
+					if ( $counter == 1 ) {
+						zb_place_ad( 1, 'mobile' );
 					}
-					if ( $counter == 2) {
-  						zb_render_ad( 'desktop', '8', 'ad-wrapper ad-wrapper-fullwidth', 'ad-medium-rectangle' );
+					if ( $counter == 2 ) {
+						zb_place_ad( 3, 'mobile' );
+						zb_place_ad( 8, 'desktop', ['ad-centered'] );
 					}
-					if ( $counter == 5) {
-						zb_render_ad( 'desktop', '4', 'ad-wrapper ad-wrapper-fullwidth', '' );
+					if ( $counter == 5 ) {
+						zb_place_ad( 4 );
+						zb_place_ad( 4, 'mobile' );
 					}
-					if ( $counter == 8) {
-						zb_render_ad( 'mobile', '4', 'ad-wrapper ad-wrapper-fullwidth', 'ad-medium-rectangle' );
+					if ( $counter == 8 ) {
+						zb_place_ad( 41 );
+						zb_place_ad( 41, 'mobile' );
+					}
+					if ( $counter == 12 ) {
+						zb_place_ad( 42);
+						zb_place_ad( 42, 'mobile' );
 					}
 					$counter++;
 				?>
