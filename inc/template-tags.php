@@ -453,6 +453,51 @@ if ( ! function_exists('zb_render_content_with_ads') ) {
 	}
 }
 
+if( ! function_exists( 'zb_place_ad' ) ) {
+	/**
+	 * Render zeit.web style ad place into loop
+	 *
+	 * @since	1.7.0
+	 * @param	int			$tile	The number of the iqadtile, iqadtile16 for instance
+	 * @param	string		$type	Ad type as in mobile or desktop, defaults to `'desktop'`
+	 * @param  	string[] 	$additional_classes		Array of classnames added to the container
+	 * @return void
+	 */
+	function zb_place_ad($tile, $type='desktop', $additional_classes=[]) {
+		if ( ! get_option( 'zon_ads_deactivated' ) ) {
+			$modificator = $type == 'desktop' ? '!' : '';
+			$classnames = implode( ' ', $additional_classes);
+			$output = <<< TEXT
+<!-- START: ad${tile}${type} -->
+<div class="ad-container ad-cls-mode ${classnames}" data-type="${type}" data-tile="${tile}">
+	<script id="ad-${type}-${tile}">
+	if ( window.Zeit.user.adFree ) {
+		try {
+			document.querySelector('#ad-${type}-${tile}').parentNode.remove();
+		} catch (error) {}
+	} else {
+		if ( typeof AdController !== 'undefined'  && ${modificator}window.Zeit.showMobileAds() ) {
+			if ( !document.getElementById( 'iqadtile${tile}' ) ) {
+				var elem = document.createElement( 'div' );
+				elem.id = 'iqadtile${tile}';
+				elem.className = "ad ad-${type} ad-${type}--${tile} ad-${type}--${tile}-on-blog";
+				elem.setAttribute('data-banner-type', '${type}');
+				elem.setAttribute('aria-hidden', 'true');
+				elem.setAttribute('tabindex', '0');
+				document.getElementById('ad-${type}-${tile}').parentNode.appendChild(elem);
+				AdController.render('iqadtile${tile}');
+			}
+		}
+	}
+	</script>
+</div>
+<!-- END: ad${tile}${type} -->
+TEXT;
+			print $output;
+		}
+	}
+}
+
 if( ! function_exists( 'zb_render_ad' ) ) {
 	/**
 	 * Render function to display ad code in blog pages
