@@ -25,7 +25,7 @@ if ( is_plugin_active('zon-blog-outbrain/zon-blog-outbrain.php') ) {
 
 } else {
 	if ( have_comments() && (! zb_get_meta( 'zb_hide_medium_rectangle' ) && ( zb_get_meta( 'zb_medium_rectangle' ) != 'hide-medium-rectangle' ) ) ) {
-		zb_render_ad( 'desktop', '5', 'ad-wrapper ad-container', 'article', 'Anzeige' );
+		zb_place_ad( 5 );
 	}
 }
 ?>

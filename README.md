@@ -22,6 +22,10 @@ and to watch during development run
 on console.
 
 ## Changes
+### 1.7.0
+- Use zeit.web ad structure with new template-tag `zb_place_ad`
+- Fix overflow bug from site header
+- Deprecate zb_render_ad
 
 ### 1.6.5
 - Add anti-cls ad styles
