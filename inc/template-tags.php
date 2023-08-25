@@ -399,11 +399,11 @@ if ( ! function_exists('zb_render_content_with_ads') ) {
 		if ( $items > 0 ) {
 			// if first para selected use min char length
 			if ( $ad_paragraph == 0  ) {
-				$ad_paragraph = determine_paragraph_by_length( $matches[ 0 ], get_option( 'zon_ads_paragraph_length', 200 ) );
+				/*$ad_paragraph = determine_paragraph_by_length( $matches[ 0 ], get_option( 'zon_ads_paragraph_length', 200 ) );*/
 			}
 			// enough space for 2nd ad?
 			if ( $ad_paragraph + 4 <= $items  ) {
-				$second_ad_paragraph = $ad_paragraph + 3;
+				/*$second_ad_paragraph = $ad_paragraph + 3;*/
 			}
 			$output = var_template_part( 'template-parts/ads', 'article-content-top' );
 			$ad_content = $output . $matches[ 0 ][ $ad_paragraph ];
@@ -493,7 +493,7 @@ if( ! function_exists( 'zb_place_ad' ) ) {
 </div>
 <!-- END: ad${tile}${type} -->
 TEXT;
-			print $output;
+			print ''; // $output;
 		}
 	}
 }
@@ -566,7 +566,7 @@ EOT;
 				$comment
 			);
 			$output = str_replace($search, $replace, $template);
-			print $output;
+			print ''; //$output;
 		}
 	}
 }
